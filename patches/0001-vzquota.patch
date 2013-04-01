@@ -1,0 +1,25 @@
+From 10f6edf2d349507b0e54610310a4a74b13f1e501 Mon Sep 17 00:00:00 2001
+From: ayufan <ayufan@ayufan.eu>
+Date: Sat, 20 Oct 2012 10:25:40 +0200
+Subject: [PATCH] x86
+
+---
+ Makefile |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 57406f8..c4f76cd 100644
+--- a/Makefile
++++ b/Makefile
+@@ -6,7 +6,7 @@ PACKAGE=vzquota
+ PKGVER=3.1
+ PACKAGERELEASE=1
+ 
+-ARCH=amd64
++ARCH=i386
+ DEB=${PACKAGE}_${PKGVER}-${PACKAGERELEASE}_${ARCH}.deb
+ 
+ SRCDIR=vzquota-${PKGVER}
+-- 
+1.7.2.5
+

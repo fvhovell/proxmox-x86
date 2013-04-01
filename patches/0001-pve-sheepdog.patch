@@ -1,0 +1,25 @@
+From 55cc2a53d48f470f3e63cf13c271b3c34a1020ca Mon Sep 17 00:00:00 2001
+From: ayufan <ayufan@ayufan.eu>
+Date: Thu, 18 Oct 2012 22:32:02 +0200
+Subject: [PATCH] x86
+
+---
+ Makefile |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 4f686e6..d81a380 100644
+--- a/Makefile
++++ b/Makefile
+@@ -4,7 +4,7 @@ PACKAGE=pve-sheepdog
+ PKGREL=7
+ SDVER=0.4.0
+ 
+-DEB=${PACKAGE}_${SDVER}-${PKGREL}_amd64.deb
++DEB=${PACKAGE}_${SDVER}-${PKGREL}_i386.deb
+ 
+ SDDIR=sheepdog-${SDVER}
+ SDSRC=${SDDIR}.tar.gz
+-- 
+1.7.2.5
+

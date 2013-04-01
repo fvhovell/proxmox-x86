@@ -1,0 +1,27 @@
+From 3ab72f283a1d109a4b3f8cbcc7cbf16763d95437 Mon Sep 17 00:00:00 2001
+From: ayufan <ayufan@ayufan.eu>
+Date: Thu, 18 Oct 2012 22:33:34 +0200
+Subject: [PATCH] x86
+
+---
+ Makefile       |    4 ++--
+ 1 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 39184e7..c6fd852 100644
+--- a/Makefile
++++ b/Makefile
+@@ -10,8 +10,8 @@ PACKAGE=redhat-cluster-pve
+ PKGREL=2
+ 
+ DEBS=									\
+-	${PACKAGE}_${RHCVER}-${PKGREL}_amd64.deb			\
+-	${PACKAGE}-dev_${RHCVER}-${PKGREL}_amd64.deb
++	${PACKAGE}_${RHCVER}-${PKGREL}_i386.deb			\
++	${PACKAGE}-dev_${RHCVER}-${PKGREL}_i386.deb
+ 
+ all: ${DEBS}
+ 	echo ${DEBS}
+-- 
+1.7.2.5
+

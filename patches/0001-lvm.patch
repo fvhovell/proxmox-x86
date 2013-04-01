@@ -1,0 +1,27 @@
+From b4086a5c13a358e8dbce8cc027d49b7665f54374 Mon Sep 17 00:00:00 2001
+From: ayufan <ayufan@ayufan.eu>
+Date: Sat, 30 Mar 2013 23:01:55 +0000
+Subject: [PATCH] x86
+
+---
+ patchdir/fix-initramfs.patch |    8 ++++++++
+ 1 file changed, 8 insertions(+)
+ create mode 100644 patchdir/fix-initramfs.patch
+
+diff --git a/patchdir/fix-initramfs.patch b/patchdir/fix-initramfs.patch
+new file mode 100644
+index 0000000..6335b7d
+--- /dev/null
++++ b/patchdir/fix-initramfs.patch
+@@ -0,0 +1,8 @@
++--- LVM2.2.02.95/debian/lvm2.install.old	2012-09-20 15:41:52.593194829 +0200
+++++ LVM2.2.02.95/debian/lvm2.install	2012-09-20 15:43:18.005196937 +0200
++@@ -9,4 +9,5 @@
++ usr/share/man/man8/vg*
++ usr/share/man/man5
++ usr/share/man/man8/fsadm.8
+++../../tree/lvm2/usr/share/initramfs-tools/* /usr/share/initramfs-tools/
++ 
+-- 
+1.7.10.4
+

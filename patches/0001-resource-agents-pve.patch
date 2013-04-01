@@ -1,0 +1,25 @@
+From 2e7eb1e3a3256f1b776527f337f2b4231f341333 Mon Sep 17 00:00:00 2001
+From: ayufan <ayufan@ayufan.eu>
+Date: Thu, 18 Oct 2012 22:33:54 +0200
+Subject: [PATCH] x86
+
+---
+ Makefile |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 08d1694..95556ab 100644
+--- a/Makefile
++++ b/Makefile
+@@ -6,7 +6,7 @@ RAVER=3.9.2
+ RADIR=resource-agents-${RAVER}
+ RASRC=${RADIR}.tar.bz2
+ 
+-DEB=${PACKAGE}_${RAVER}-${PKGREL}_amd64.deb
++DEB=${PACKAGE}_${RAVER}-${PKGREL}_i386.deb
+ 
+ all: ${DEB}
+ 
+-- 
+1.7.2.5
+

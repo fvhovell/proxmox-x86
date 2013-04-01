@@ -1,0 +1,25 @@
+From e1fbd9f4467fa245b18fc34b3dba731858b96558 Mon Sep 17 00:00:00 2001
+From: ayufan <ayufan@ayufan.eu>
+Date: Thu, 18 Oct 2012 22:33:18 +0200
+Subject: [PATCH] x86
+
+---
+ Makefile |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 3b54169..49aa75f 100644
+--- a/Makefile
++++ b/Makefile
+@@ -8,7 +8,7 @@ KVMPACKAGE=pve-qemu-kvm
+ KVMDIR=qemu-kvm
+ KVMSRC=${KVMDIR}-src.tar.gz
+ 
+-ARCH=amd64
++ARCH=i386
+ 
+ KVM_DEB=${KVMPACKAGE}_${KVMVER}-${KVMPKGREL}_${ARCH}.deb
+ 
+-- 
+1.7.2.5
+

@@ -1,0 +1,39 @@
+From f1578bd47274cb288b0a6a9d47aea1bcc539e7c9 Mon Sep 17 00:00:00 2001
+From: ayufan <ayufan@ayufan.eu>
+Date: Mon, 1 Apr 2013 18:52:29 +0200
+Subject: [PATCH] use pve-headers-2.6.32-18-pve
+
+---
+ debian/control |    2 +-
+ debian/rules   |    2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/debian/control b/debian/control
+index 28dfc8e..c1c35ac 100644
+--- a/debian/control
++++ b/debian/control
+@@ -10,7 +10,7 @@ Build-Depends: quilt (>= 0.46-7~), debhelper (>= 7), autotools-dev,
+  libcorosync-pve-dev,
+  libopenais-pve-dev,
+  xsltproc,
+- pve-headers-2.6.32-19-pve
++ pve-headers-2.6.32-18-pve
+ 
+ Package: redhat-cluster-pve
+ Architecture: any
+diff --git a/debian/rules b/debian/rules
+index 0e16ac6..ce49878 100755
+--- a/debian/rules
++++ b/debian/rules
+@@ -25,7 +25,7 @@ override_dh_auto_configure:
+ 	./configure --prefix=/usr \
+ 		    --libexecdir=/usr/lib \
+ 		    --disable_dbus \
+-	            --kernel_src=/usr/src/linux-headers-2.6.32-19-pve/
++	            --kernel_src=/usr/src/linux-headers-2.6.32-18-pve/
+ 
+ override_dh_auto_install:
+ 	$(MAKE) install DESTDIR=$(BUILDROOT)/debian/tmp/
+-- 
+1.7.2.5
+

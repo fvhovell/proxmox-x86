@@ -1,0 +1,99 @@
+#!/bin/bash
+
+PACKAGES=$(cat <<EOF
+corosync-pve.git
+openais-pve.git
+pve-common.git
+libqb.git
+pve-cluster.git
+redhat-cluster-pve.git
+lvm.git
+pve-access-control.git
+pve-storage.git
+pve-qemu-kvm.git
+qemu-server.git
+vncterm.git
+vzquota.git
+vzctl.git
+fence-agents-pve.git
+resource-agents-pve.git
+pve-manager.git
+libiscsi.git
+gfs2-utils.git
+ksm-control-daemon.git
+EOF
+)
+
+#pve-kernel-2.6.32.git
+
+function update_repo() {
+	# $1 - name
+	# $2 - url
+	[ ! -e $1 ] && git clone $2 $1
+	cd $1
+	git fetch
+	git reset --hard origin/master
+	for j in ../patches/*-$1.patch
+	do
+		[ ! -f $j ] && continue
+		echo $j...
+		if ! git am $j
+		then
+			git am --abort
+			echo "$1: $j doesn't apply correctly"
+			return 1
+		fi
+	done
+
+	return 0
+}
+
+CMD=$1
+shift
+
+case $CMD in
+	compile)
+		[ "$*" != "" ] && PACKAGES=$*
+
+		for i in $PACKAGES
+		do
+			[ -e $i.finished ] && continue
+			( update_repo ${i//.git} git://git.proxmox.com/git/$i ) || exit 1
+			make -C ${i//.git/} dinstall || exit 1
+			touch $i.finished
+		done
+		;;
+
+	packages)
+		echo $PACKAGES
+		;;
+
+	prepare)
+		apt-get -y install build-essential git-core debhelper autotools-dev \
+doxygen check pkg-config libnss3-dev groff quilt dpatch libxml2-dev \
+libncurses5-dev libslang2-dev libldap2-dev xsltproc python-pexpect \
+python-pycurl libdbus-1-dev openipmi sg3-utils libnet-snmp-perl \
+libnet-telnet-perl snmp python-openssl libxml2-utils automake autoconf \
+libsqlite3-dev sqlite3 libfuse-dev libglib2.0-dev librrd-dev \
+librrds-perl rrdcached lintian libdevel-cycle-perl libjson-perl \
+liblinux-inotify2-perl libio-stringy-perl unzip fuse-utils \
+libcrypt-openssl-random-perl libcrypt-openssl-rsa-perl \
+libauthen-pam-perl libterm-readline-gnu-perl libssl-dev open-iscsi \
+libapache2-mod-perl2 libfilesys-df-perl libfile-readbackwards-perl \
+libpci-dev texi2html libgnutls-dev libsdl1.2-dev bridge-utils \
+libvncserver0 rpm2cpio  apache2-mpm-prefork libintl-perl \
+libapache2-request-perl libnet-dns-perl vlan libio-socket-ssl-perl \
+libfile-sync-perl ifenslave-2.6 libnet-ldap-perl console-data \
+libtool dietlibc-dev liblocale-po-perl libstring-shellquote-perl \
+libio-multiplex-perl liblockfile-simple-perl
+		;;
+
+	*)
+		echo "usage: $0 <command>"
+		echo "commands:"
+		echo -e "\tcompile <packages>"
+		echo -e "\tprepare"
+		exit 1
+		;;
+esac
+

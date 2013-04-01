@@ -1,0 +1,25 @@
+From 7fdcf1bb5eaf5a2dde43752d9daddd9eafd62099 Mon Sep 17 00:00:00 2001
+From: ayufan <ayufan@ayufan.eu>
+Date: Fri, 19 Oct 2012 12:16:24 +0200
+Subject: [PATCH] compilation error
+
+---
+ po/po2js.pl |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/po/po2js.pl b/po/po2js.pl
+index 9b8387b..c9b94b7 100755
+--- a/po/po2js.pl
++++ b/po/po2js.pl
+@@ -58,7 +58,7 @@ foreach my $k (keys %$href) {
+ 
+     my $digest = fnv31a($msgid);
+ 
+-    die "duplicate digest" if $catalog->{$digest};
++    # die "duplicate digest" if $catalog->{$digest};
+ 
+     $catalog->{$digest} = [ $msgstr ];
+     # later, we can add plural forms to the array
+-- 
+1.7.2.5
+
