@@ -1,0 +1,25 @@
+From 0673ba8199b54d35743dbfd1087966241f862ffc Mon Sep 17 00:00:00 2001
+From: ayufan <ayufan@ayufan.eu>
+Date: Mon, 1 Apr 2013 21:49:48 +0000
+Subject: [PATCH] x86
+
+---
+ Makefile |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index 08f8afc..317bb62 100644
+--- a/Makefile
++++ b/Makefile
+@@ -7,7 +7,7 @@ GFSUDIR=gfs2-utils
+ GFSUSRC=gfs2-utils-${GFSUVER}.tar.gz
+ 
+ 
+-DEB=${PACKAGE}_${GFSUVER}-${PKGREL}_amd64.deb
++DEB=${PACKAGE}_${GFSUVER}-${PKGREL}_i386.deb
+ 
+ all: ${DEB}
+ 
+-- 
+1.7.10.4
+

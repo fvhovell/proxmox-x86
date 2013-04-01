@@ -6,12 +6,12 @@ Subject: [PATCH] x86
 ---
  Makefile                        |    6 +-
  config-2.6.32                   | 4658 +++++++++++++++++++++++++++++++++++++++
- config-2.6.32-042stab061.9.i686 | 4647 ++++++++++++++++++++++++++++++++++++++
+ config-2.6.32-042stab075.2.i686 | 4647 ++++++++++++++++++++++++++++++++++++++
  control.in                      |    2 +-
  headers-control.in              |    2 +-
  5 files changed, 9310 insertions(+), 5 deletions(-)
  create mode 100644 config-2.6.32
- create mode 100644 config-2.6.32-042stab061.9.i686
+ create mode 100644 config-2.6.32-042stab075.2.i686
 
 diff --git a/Makefile b/Makefile
 index 2598dba..0d3b765 100644
@@ -32,7 +32,7 @@ index 2598dba..0d3b765 100644
 +KERNEL_CFG_ORG=config-${KERNEL_VER}-${OVZVER}.i686
  
  FW_VER=1.0
- FW_REL=18
+ FW_REL=22
 @@ -92,7 +92,7 @@ data: .compile_mark ${KERNEL_CFG} aoe.ko e1000e.ko igb.ko ixgbe.ko iscsi_trgt.ko
  	mkdir tmp/boot
  	install -m 644 ${KERNEL_CFG} tmp/boot/config-${KVNAME}
@@ -4706,11 +4706,11 @@ index 0000000..f5d7f45
 +# CONFIG_BC_KEEP_UNUSED is not set
 +# CONFIG_BC_DEBUG_ITEMS is not set
 +# CONFIG_BC_UNLIMITED is not set
-diff --git a/config-2.6.32-042stab061.9.i686 b/config-2.6.32-042stab061.9.i686
+diff --git a/config-2.6.32-042stab075.2.i686 b/config-2.6.32-042stab075.2.i686
 new file mode 100644
 index 0000000..a22196e
 --- /dev/null
-+++ b/config-2.6.32-042stab061.9.i686
++++ b/config-2.6.32-042stab075.2.i686
 @@ -0,0 +1,4647 @@
 +#
 +# Automatically generated make config: don't edit

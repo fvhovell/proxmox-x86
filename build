@@ -5,6 +5,9 @@ corosync-pve.git
 openais-pve.git
 pve-common.git
 libqb.git
+libiscsi.git
+libnet-http-perl.git
+pve-kernel-2.6.32.git
 pve-cluster.git
 redhat-cluster-pve.git
 lvm.git
@@ -18,20 +21,19 @@ vzctl.git
 fence-agents-pve.git
 resource-agents-pve.git
 pve-manager.git
-libiscsi.git
 gfs2-utils.git
 ksm-control-daemon.git
+dab.git
+pve-sheepdog.git
 EOF
 )
-
-#pve-kernel-2.6.32.git
 
 function update_repo() {
 	# $1 - name
 	# $2 - url
-	[ ! -e $1 ] && git clone $2 $1
+	[ ! -e $1 ] && git clone $2 $1 --depth 4
 	cd $1
-	git fetch
+	git fetch --depth 4
 	git reset --hard origin/master
 	for j in ../patches/*-$1.patch
 	do
@@ -57,10 +59,11 @@ case $CMD in
 
 		for i in $PACKAGES
 		do
-			[ -e $i.finished ] && continue
-			( update_repo ${i//.git} git://git.proxmox.com/git/$i ) || exit 1
-			make -C ${i//.git/} dinstall || exit 1
-			touch $i.finished
+			j=${i//.git}
+			[ -e $j.finished ] && continue
+			( update_repo $j git://git.proxmox.com/git/$i ) || exit 1
+			( make -C $j dinstall ) || exit 1
+			touch $j.finished
 		done
 		;;
 
@@ -85,7 +88,8 @@ libvncserver0 rpm2cpio  apache2-mpm-prefork libintl-perl \
 libapache2-request-perl libnet-dns-perl vlan libio-socket-ssl-perl \
 libfile-sync-perl ifenslave-2.6 libnet-ldap-perl console-data \
 libtool dietlibc-dev liblocale-po-perl libstring-shellquote-perl \
-libio-multiplex-perl liblockfile-simple-perl
+libio-multiplex-perl liblockfile-simple-perl libudev-dev libreadline-gplv2-dev \
+libfile-chdir-perl
 		;;
 
 	*)

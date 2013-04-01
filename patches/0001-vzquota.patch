@@ -13,7 +13,7 @@ index 57406f8..c4f76cd 100644
 +++ b/Makefile
 @@ -6,7 +6,7 @@ PACKAGE=vzquota
  PKGVER=3.1
- PACKAGERELEASE=1
+ PACKAGERELEASE=2
  
 -ARCH=amd64
 +ARCH=i386

@@ -1,25 +1,25 @@
-From 75d87b6bbe69d527a3bcd017f8bef08d9a7b127a Mon Sep 17 00:00:00 2001
+From 0bc8dfbdbae1a625f571dad1c9db4a36d40d5c38 Mon Sep 17 00:00:00 2001
 From: ayufan <ayufan@ayufan.eu>
-Date: Mon, 1 Apr 2013 18:44:51 +0200
-Subject: [PATCH] revert perl to 5.10.1
+Date: Mon, 1 Apr 2013 18:48:47 +0200
+Subject: [PATCH] fix debian/control: libqb0 => libqb
 
 ---
- data/PVE/Makefile.am |    2 +-
+ debian/control |    2 +-
  1 files changed, 1 insertions(+), 1 deletions(-)
 
-diff --git a/data/PVE/Makefile.am b/data/PVE/Makefile.am
-index 7635a78..b886ee7 100644
---- a/data/PVE/Makefile.am
-+++ b/data/PVE/Makefile.am
-@@ -4,7 +4,7 @@ IPCC.c: IPCC.xs
- 	xsubpp IPCC.xs > IPCC.xsc
- 	mv IPCC.xsc IPCC.c
+diff --git a/debian/control b/debian/control
+index ef8b8a9..adaee31 100644
+--- a/debian/control
++++ b/debian/control
+@@ -7,7 +7,7 @@ Standards-Version: 3.7.3
  
--CFLAGS = -shared -fPIC -Wall -I/usr/lib/perl/5.14.2/CORE -DXS_VERSION=VERSION
-+CFLAGS = -shared -fPIC -Wall -I/usr/lib/perl/5.10.1/CORE -DXS_VERSION=VERSION
- LDADD = $(QB_LIBS)
- 
- perlbin_PROGRAMS = IPCC.so
+ Package: pve-cluster
+ Architecture: any
+-Depends: ${shlibs:Depends}, ${misc:Depends}, ${perl:Depends}, rsync, libsqlite3-0, sqlite3, libfuse2, fuse-utils, libcorosync4-pve, libqb0, libpve-common-perl, libglib2.0-0, rsyslog, openssl, librrd4, librrds-perl, rrdcached, libdigest-hmac-perl, libxml-parser-perl, insserv
++Depends: ${shlibs:Depends}, ${misc:Depends}, ${perl:Depends}, rsync, libsqlite3-0, sqlite3, libfuse2, fuse-utils, libcorosync4-pve, libqb, libpve-common-perl, libglib2.0-0, rsyslog, openssl, librrd4, librrds-perl, rrdcached, libdigest-hmac-perl, libxml-parser-perl, insserv
+ Description: Cluster Infrastructure for Proxmox Virtual Environment
+  This package contains the Cluster Infrastructure for the Proxmox
+  Virtual Environment, namely a distributed filesystem to store
 -- 
 1.7.2.5
 

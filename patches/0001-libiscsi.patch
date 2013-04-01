@@ -1,0 +1,22 @@
+From 16eaef7f73c98bb4cace78e6808643b602c1deda Mon Sep 17 00:00:00 2001
+From: ayufan <ayufan@ayufan.eu>
+Date: Mon, 1 Apr 2013 21:21:40 +0000
+Subject: [PATCH] silent some warnings
+
+---
+ debian/rules |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/debian/rules b/debian/rules
+index 64887ad..b7cc2d7 100755
+--- a/debian/rules
++++ b/debian/rules
+@@ -5,4 +5,4 @@
+ 
+ override_dh_auto_configure:
+ 	./autogen.sh
+-	./configure --prefix=/usr --libdir=/usr/lib
++	./configure --prefix=/usr --libdir=/usr/lib CFLAGS="-Wno-error=sign-compare -Wno-error=format"
+-- 
+1.7.10.4
+

@@ -1,0 +1,25 @@
+From 3126a336573b095f13d4ffd8c5fe1b9c7943acfd Mon Sep 17 00:00:00 2001
+From: ayufan <ayufan@ayufan.eu>
+Date: Mon, 1 Apr 2013 20:32:09 +0000
+Subject: [PATCH] x86
+
+---
+ Makefile |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index eb3799f..015240b 100644
+--- a/Makefile
++++ b/Makefile
+@@ -2,7 +2,7 @@ RELEASE=3.0
+ 
+ SVER=4.0
+ PACKAGERELEASE=1pve3
+-ARCH=amd64
++ARCH=i386
+ 
+ PACKAGE=vzctl
+ DEB=${PACKAGE}_${SVER}-${PACKAGERELEASE}_${ARCH}.deb
+-- 
+1.7.10.4
+

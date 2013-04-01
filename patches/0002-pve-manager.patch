@@ -1,0 +1,25 @@
+From a23b1ff6a87a846bb616a2f48ebbb9993da20211 Mon Sep 17 00:00:00 2001
+From: ayufan <ayufan@ayufan.eu>
+Date: Mon, 1 Apr 2013 21:41:27 +0000
+Subject: [PATCH] fix architecture
+
+---
+ debian/control.in |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/debian/control.in b/debian/control.in
+index a9dc53c..2fe2579 100644
+--- a/debian/control.in
++++ b/debian/control.in
+@@ -2,7 +2,7 @@ Package: @PACKAGE@
+ Version: @VERSION@-@PACKAGERELEASE@
+ Section: admin
+ Priority: optional
+-Architecture: amd64
++Architecture: i386
+ Depends: perl5, libtimedate-perl, apache2-mpm-prefork, libauthen-pam-perl, libintl-perl, rsync, libapache2-request-perl, libjson-perl, liblockfile-simple-perl, vncterm, qemu-server (>= 1.1-1), libwww-perl (>= 6.04-1), libnet-http-perl (>= 6.06-1), libhttp-daemon-perl, wget, libnet-dns-perl, vlan, ifenslave-2.6 (>= 1.1.0-10), liblinux-inotify2-perl, debconf (>= 0.5) | debconf-2.0, netcat-traditional, pve-cluster (>= 1.0-29), libpve-common-perl, libpve-storage-perl, libterm-readline-gnu-perl, libpve-access-control, libio-socket-ssl-perl, libfilesys-df-perl, libfile-readbackwards-perl, libfile-sync-perl, redhat-cluster-pve, resource-agents-pve, fence-agents-pve, cstream, postfix | mail-transport-agent, libxml-parser-perl, lzop, dtach
+ Conflicts: netcat-openbsd, vzdump
+ Replaces: vzdump
+-- 
+1.7.10.4
+

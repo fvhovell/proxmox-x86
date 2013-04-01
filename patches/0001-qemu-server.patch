@@ -1,0 +1,25 @@
+From 19e4f7aa92fdde18c8bed0bba069834315b84899 Mon Sep 17 00:00:00 2001
+From: ayufan <ayufan@ayufan.eu>
+Date: Mon, 1 Apr 2013 21:39:49 +0000
+Subject: [PATCH] fix compilation error
+
+---
+ sparsecp.c |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/sparsecp.c b/sparsecp.c
+index 950a27c..c79d459 100644
+--- a/sparsecp.c
++++ b/sparsecp.c
+@@ -123,7 +123,7 @@ main (int argc, char **argv)
+   time_t delay = time(NULL) - starttime;
+   if (delay <= 0) delay = 1;
+ 
+-  fprintf (stderr, "%zu bytes copied, %zd s, %.2f MiB/s\n", total, delay,
++  fprintf (stderr, "%zu bytes copied, %zd s, %.2f MiB/s\n", total, (size_t)delay,
+ 	   (total/(1024*1024))/(float)delay);
+ 
+   outname = NULL;
+-- 
+1.7.10.4
+
