@@ -6,12 +6,12 @@ Subject: [PATCH] x86
 ---
  Makefile                        |    6 +-
  config-2.6.32                   | 4658 +++++++++++++++++++++++++++++++++++++++
- config-2.6.32-042stab075.2.i686 | 4647 ++++++++++++++++++++++++++++++++++++++
+ config-2.6.32-042stab076.7.i686 | 4647 ++++++++++++++++++++++++++++++++++++++
  control.in                      |    2 +-
  headers-control.in              |    2 +-
  5 files changed, 9310 insertions(+), 5 deletions(-)
  create mode 100644 config-2.6.32
- create mode 100644 config-2.6.32-042stab075.2.i686
+ create mode 100644 config-2.6.32-042stab076.7.i686
 
 diff --git a/Makefile b/Makefile
 index 2598dba..0d3b765 100644
@@ -47,7 +47,7 @@ new file mode 100644
 index 0000000..f5d7f45
 --- /dev/null
 +++ b/config-2.6.32
-@@ -0,0 +1,4658 @@
+@@ -0,0 +1,4659 @@
 +#
 +# Automatically generated make config: don't edit
 +# Linux kernel version: 2.6.32-042stab061.9
@@ -282,6 +282,7 @@ index 0000000..f5d7f45
 +CONFIG_DEFAULT_CFQ=y
 +# CONFIG_DEFAULT_NOOP is not set
 +CONFIG_DEFAULT_IOSCHED="cfq"
++CONFIG_PREEMPT_NOTIFIERS=y
 +CONFIG_FREEZER=y
 +
 +#
@@ -3354,7 +3355,7 @@ index 0000000..f5d7f45
 +# CONFIG_LOGO_LINUX_MONO is not set
 +# CONFIG_LOGO_LINUX_VGA16 is not set
 +CONFIG_LOGO_LINUX_CLUT224=y
-+
++CONFIG_LOGO_PSBM_CLUT224=y
 +#
 +# Bootsplash configuration
 +#
@@ -4706,12 +4707,12 @@ index 0000000..f5d7f45
 +# CONFIG_BC_KEEP_UNUSED is not set
 +# CONFIG_BC_DEBUG_ITEMS is not set
 +# CONFIG_BC_UNLIMITED is not set
-diff --git a/config-2.6.32-042stab075.2.i686 b/config-2.6.32-042stab075.2.i686
+diff --git a/config-2.6.32-042stab076.7.i686 b/config-2.6.32-042stab076.7.i686
 new file mode 100644
 index 0000000..a22196e
 --- /dev/null
-+++ b/config-2.6.32-042stab075.2.i686
-@@ -0,0 +1,4647 @@
++++ b/config-2.6.32-042stab076.7.i686
+@@ -0,0 +1,4649 @@
 +#
 +# Automatically generated make config: don't edit
 +# Linux kernel version: 2.6.32-042stab061.9
@@ -4946,6 +4947,7 @@ index 0000000..a22196e
 +CONFIG_DEFAULT_CFQ=y
 +# CONFIG_DEFAULT_NOOP is not set
 +CONFIG_DEFAULT_IOSCHED="cfq"
++CONFIG_PREEMPT_NOTIFIERS=y
 +CONFIG_FREEZER=y
 +
 +#
@@ -8018,6 +8020,7 @@ index 0000000..a22196e
 +# CONFIG_LOGO_LINUX_MONO is not set
 +# CONFIG_LOGO_LINUX_VGA16 is not set
 +CONFIG_LOGO_LINUX_CLUT224=y
++CONFIG_LOGO_PSBM_CLUT224=y
 +CONFIG_SOUND=m
 +CONFIG_SOUND_OSS_CORE=y
 +CONFIG_SOUND_OSS_CORE_PRECLAIM=y

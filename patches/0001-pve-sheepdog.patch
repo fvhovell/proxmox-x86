@@ -12,7 +12,7 @@ index 4f686e6..d81a380 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -4,7 +4,7 @@ PACKAGE=pve-sheepdog
- PKGREL=1
+ PKGREL=2
  SDVER=0.5.6
  
 -DEB=${PACKAGE}_${SDVER}-${PKGREL}_amd64.deb

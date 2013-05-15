@@ -62,8 +62,27 @@ case $CMD in
 			j=${i//.git}
 			[ -e $j.finished ] && continue
 			( update_repo $j git://git.proxmox.com/git/$i ) || exit 1
-			( make -C $j dinstall ) || exit 1
+			if [ "$j" == "pve-kernel-2.6.32" ]
+			then
+				( make -C $j all -j 16 ) || exit 1
+			else
+				( make -C $j dinstall ) || exit 1
+			fi
 			touch $j.finished
+		done
+		;;
+
+	update)
+		[ "$*" != "" ] && PACKAGES=$*
+
+		for i in $PACKAGES
+		do
+			j=${i//.git}
+			if ( cd $j; git fetch; git diff origin/master | grep diff > /dev/null )
+			then
+				echo "$j needs to be compiled"
+				rm -f $j.finished
+			fi
 		done
 		;;
 
@@ -96,6 +115,7 @@ libfile-chdir-perl
 		echo "usage: $0 <command>"
 		echo "commands:"
 		echo -e "\tcompile <packages>"
+		echo -e "\tupdate <packages>"
 		echo -e "\tprepare"
 		exit 1
 		;;
