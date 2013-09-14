@@ -64,7 +64,7 @@ case $CMD in
 			( update_repo $j git://git.proxmox.com/git/$i ) || exit 1
 			if [ "$j" == "pve-kernel-2.6.32" ]
 			then
-				( make -C $j all -j 16 ) || exit 1
+				( make -C $j all ) || exit 1
 			else
 				( make -C $j dinstall ) || exit 1
 			fi
