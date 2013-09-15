@@ -1,25 +1,25 @@
-From 0bc8dfbdbae1a625f571dad1c9db4a36d40d5c38 Mon Sep 17 00:00:00 2001
+From 166593264c36980c3428b43ce03df003e796fe64 Mon Sep 17 00:00:00 2001
 From: ayufan <ayufan@ayufan.eu>
-Date: Mon, 1 Apr 2013 18:48:47 +0200
-Subject: [PATCH] fix debian/control: libqb0 => libqb
+Date: Mon, 1 Apr 2013 18:31:00 +0000
+Subject: [PATCH] fix perl compilation error
 
 ---
- debian/control |    2 +-
- 1 files changed, 1 insertions(+), 1 deletions(-)
+ data/PVE/Makefile.am |    2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/debian/control b/debian/control
-index ef8b8a9..adaee31 100644
---- a/debian/control
-+++ b/debian/control
-@@ -7,7 +7,7 @@ Standards-Version: 3.7.3
+diff --git a/data/PVE/Makefile.am b/data/PVE/Makefile.am
+index 7635a78..0f5903a 100644
+--- a/data/PVE/Makefile.am
++++ b/data/PVE/Makefile.am
+@@ -4,7 +4,7 @@ IPCC.c: IPCC.xs
+ 	xsubpp IPCC.xs > IPCC.xsc
+ 	mv IPCC.xsc IPCC.c
  
- Package: pve-cluster
- Architecture: any
--Depends: ${shlibs:Depends}, ${misc:Depends}, ${perl:Depends}, rsync, libsqlite3-0, sqlite3, libfuse2, fuse, libcorosync4-pve, libqb0, libpve-common-perl, libglib2.0-0, rsyslog, openssl, librrd4, librrds-perl, rrdcached, libdigest-hmac-perl, libxml-parser-perl, insserv
-+Depends: ${shlibs:Depends}, ${misc:Depends}, ${perl:Depends}, rsync, libsqlite3-0, sqlite3, libfuse2, fuse, libcorosync4-pve, libqb, libpve-common-perl, libglib2.0-0, rsyslog, openssl, librrd4, librrds-perl, rrdcached, libdigest-hmac-perl, libxml-parser-perl, insserv
- Description: Cluster Infrastructure for Proxmox Virtual Environment
-  This package contains the Cluster Infrastructure for the Proxmox
-  Virtual Environment, namely a distributed filesystem to store
+-CFLAGS = -shared -fPIC -Wall -I/usr/lib/perl/5.14.2/CORE -DXS_VERSION=VERSION
++CFLAGS = -shared -fPIC -Wall -I/usr/lib/perl/5.14.2/CORE -DXS_VERSION=VERSION -D_REENTRANT -D_GNU_SOURCE -DDEBIAN -fstack-protector -fno-strict-aliasing -pipe -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64
+ LDADD = $(QB_LIBS)
+ 
+ perlbin_PROGRAMS = IPCC.so
 -- 
-1.7.2.5
+1.7.10.4
 
