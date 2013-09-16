@@ -1,0 +1,41 @@
+From 046248c2ef97a81c3e8cd283a205527aa7acdb27 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Frederik=20van=20H=C3=B6vell?=
+ <frederik@roodburcht.fvhovell.nl>
+Date: Mon, 16 Sep 2013 12:34:18 +0200
+Subject: [PATCH 2/2] Add installation of kernel headers during build
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: Frederik van Hövell <frederik@roodburcht.fvhovell.nl>
+---
+ Makefile | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index 3c21f48..1d8071e 100644
+--- a/Makefile
++++ b/Makefile
+@@ -65,7 +65,7 @@ HDR_DEB=${HDRPACKAGE}_${KERNEL_VER}-${PKGREL}_${ARCH}.deb
+ PVEPKG=proxmox-ve-${KERNEL_VER}
+ PVE_DEB=${PVEPKG}_${RELEASE}-${PKGREL}_all.deb
+ 
+-all: check_gcc ${DST_DEB} ${PVE_DEB} ${FW_DEB} ${HDR_DEB}
++all: check_gcc ${DST_DEB} ${PVE_DEB} ${FW_DEB} ${HDR_DEB} header_install
+ 
+ ${PVE_DEB} pve: proxmox-ve/control proxmox-ve/postinst
+ 	rm -rf proxmox-ve/data
+@@ -294,6 +294,10 @@ ${HDR_DEB} hdr: .compile_mark headers-control.in headers-postinst.in
+ 	dpkg-deb --build $(headers_tmp) ${HDR_DEB}
+ 	#lintian ${HDR_DEB}
+ 
++header_install: ${HDR_DEB}
++	rm -f /lib/modules/${KVNAME}/build
++	dpkg -i --force-depends ${HDR_DEB}
++
+ linux-firmware.git/WHENCE:
+ 	git clone git://git.kernel.org/pub/scm/linux/kernel/git/firmware/linux-firmware.git linux-firmware.git
+ 
+-- 
+1.8.4.rc3
+
