@@ -119,7 +119,7 @@ libfile-chdir-perl libpopt-dev cpio libqb-dev openssh-server libjson-xs-perl \
 dh-autoreconf libibverbs-dev libdb-dev librdmacm-dev libaio-dev attr flex bison \
 python-all-dev hardening-wrapper nfs-common python-pyparsing libxinerama-dev \
 libusb-1.0-0-dev libusbredirparser-dev texinfo uuid-dev librbd-dev ceph-common \
-netcat-traditional socat libjpeg62
+netcat-traditional socat libjpeg62 libcgroup-dev
 		;;
 	collect)
 		rm -rf packages && mkdir packages
