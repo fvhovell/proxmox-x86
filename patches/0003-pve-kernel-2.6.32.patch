@@ -2,7 +2,7 @@ From cf87eb05236904e53dc0941f88b5d81f7842b6df Mon Sep 17 00:00:00 2001
 From: =?UTF-8?q?Frederik=20van=20H=C3=B6vell?=
  <frederik@roodburcht.fvhovell.nl>
 Date: Mon, 16 Sep 2013 17:05:48 +0200
-Subject: [PATCH 3/3] Add custom config for pve-server01
+Subject: [PATCH 3/3] Add custom fvh config for pve-server01
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
