@@ -1,6 +1,3 @@
-proxmox-x86
-===========
-
 Patches to the Proxmox VE software for compilation on x86 / i386.
 =======
 # Install a standard Debian Wheezy (x86)
@@ -63,4 +60,4 @@ Check the currently active Kernel:
 Accept the suggestion to remove Exim and configure postfix according to your network.
 
 ## Connect to the Proxmox VE web interface
-Connect to the admin web interface (<pre>https://youripaddress:8006</pre>) and configure the vmbr0 and review all other settings, finally reboot to check if everything is running as expected.
+Connect to the admin web interface (https://youripaddress:8006) and configure the vmbr0 and review all other settings, finally reboot to check if everything is running as expected.
