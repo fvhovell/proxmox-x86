@@ -19,48 +19,48 @@ Adapt your sources.list
 1. Adapt your sources.list and add the Proxmox VE repository:
 
     `nano /etc/apt/sources.list`
-
+<pre>
         deb http://ftp.debian.org/debian squeeze main contrib
         deb http://security.debian.org/ squeeze/updates main contrib
 		
 	# PVE packages provided by fvhovell
         deb http://www.fvhovell.nl/proxmox pve3/
-
+</pre>
 2. Update your repository and system by running:
-
+<pre>
         aptitude update
         aptitude full-upgrade
-
+</pre>
 3. Install Proxmox VE Kernel
-
+<pre>
         aptitude install pve-firmware
         aptitude install pve-kernel-2.6.32-24-pve
-
+</pre>
 4. Reboot and make sure to select Proxmox VE Kernel on the boot loader (grub2).
 
 5. Optional - install Kernel headers:
-
+<pre>
         aptitude install pve-headers-2.6.32-24-pve
-
+</pre>
 6. Now restart the system using the Proxmox VE kernel.
 
 ## Install Proxmox VE packages
 
 1. Make sure you are running the Proxmox VE Kernel, otherwise the installation will fail.
 Check the currently active Kernel:
-
+<pre>
         uname -a
         Linux 2.6.32-24-pve ... 
-
+</pre>
 2. Install the Proxmox VE packages:
-
+<pre>
         aptitude install proxmox-ve-2.6.32
-
+</pre>
 ## Install the rest of needed packages:
-
+<pre>
     aptitude install ntp ssh lvm2 postfix ksm-control-daemon vzprocps
-
+</pre>
 Accept the suggestion to remove Exim and configure postfix according to your network.
 
 ## Connect to the Proxmox VE web interface
-Connect to the admin web interface (https://youripaddress:8006) and configure the vmbr0 and review all other settings, finally reboot to check if everything is running as expected.
+Connect to the admin web interface (<pre>https://youripaddress:8006</pre>) and configure the vmbr0 and review all other settings, finally reboot to check if everything is running as expected.
