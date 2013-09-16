@@ -1,0 +1,48 @@
+From 7963087d64768fda242d946d0fd23b43544f4272 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Frederik=20van=20H=C3=B6vell?=
+ <frederik@roodburcht.fvhovell.nl>
+Date: Mon, 16 Sep 2013 12:55:29 +0200
+Subject: [PATCH] Fix dependency on libreadline-gplv2-dev
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: Frederik van Hövell <frederik@roodburcht.fvhovell.nl>
+---
+ Makefile                               |  1 +
+ fix-dependency-libreadline-gplv2.patch | 11 +++++++++++
+ 2 files changed, 12 insertions(+)
+ create mode 100644 fix-dependency-libreadline-gplv2.patch
+
+diff --git a/Makefile b/Makefile
+index 01f9557..ccf91eb 100644
+--- a/Makefile
++++ b/Makefile
+@@ -33,6 +33,7 @@ deb ${DEBS}: ${GLUSTERFSSRC} ${DEBSRC}
+ 	echo "debian/SOURCE" >>${GLUSTERFSDIR}/debian/glusterfs-client.docs
+ 	# Hack - create missing log directory
+ 	echo "/var/log/glusterfs" >> ${GLUSTERFSDIR}/debian/glusterfs-client.dirs
++	patch -p2 ${GLUSTERFSDIR}/debian/control fix-dependency-libreadline-gplv2.patch 
+ 	cd ${GLUSTERFSDIR}; dpkg-buildpackage -b -uc -us
+ 
+ .PHONY: upload
+diff --git a/fix-dependency-libreadline-gplv2.patch b/fix-dependency-libreadline-gplv2.patch
+new file mode 100644
+index 0000000..19a00c4
+--- /dev/null
++++ b/fix-dependency-libreadline-gplv2.patch
+@@ -0,0 +1,11 @@
++--- glusterfs-3.4.0/debian/control	2013-07-23 12:23:10.000000000 +0000
+++++ glusterfs-3.4.0/debian/control.new	2013-09-16 10:48:11.057250614 +0000
++@@ -15,7 +15,7 @@
++  attr,
++  flex,
++  bison,
++- libreadline-dev,
+++ libreadline-gplv2-dev,
++  libncurses5-dev,
++  libssl-dev,
++  libxml2-dev,
+-- 
+1.8.4.rc3
+
