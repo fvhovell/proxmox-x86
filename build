@@ -18,6 +18,7 @@ usb-redir.git
 pve-qemu-kvm.git
 qemu-server.git
 vncterm.git
+spiceterm.git
 vzquota.git
 vzctl.git
 fence-agents-pve.git
