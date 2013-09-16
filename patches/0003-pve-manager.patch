@@ -1,0 +1,41 @@
+From 4b148088918903b553125b2626347dc59ad8a89b Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Frederik=20van=20H=C3=B6vell?=
+ <frederik@roodburcht.fvhovell.nl>
+Date: Mon, 16 Sep 2013 19:28:15 +0200
+Subject: [PATCH 3/3] Remove annoying popupbox for invalid subscription key.
+
+---
+ www/manager/Utils.js | 17 +----------------
+ 1 file changed, 1 insertion(+), 16 deletions(-)
+
+diff --git a/www/manager/Utils.js b/www/manager/Utils.js
+index 8165e7a..1105de5 100644
+--- a/www/manager/Utils.js
++++ b/www/manager/Utils.js
+@@ -447,22 +447,7 @@ Ext.define('PVE.Utils', { statics: {
+ 	    success: function(response, opts) {
+ 		var data = response.result.data;
+ 
+-		if (data.status !== 'Active') {
+-		    Ext.Msg.show({
+-			title: gettext('No valid subscription'),
+-			icon: Ext.Msg.WARNING,
+-			msg: PVE.Utils.noSubKeyHtml,
+-			buttons: Ext.Msg.OK,
+-			callback: function(btn) {
+-			    if (btn !== 'ok') {
+-				return;
+-			    }
+-			    orig_cmd();
+-			}
+-		    });
+-		} else {
+-		    orig_cmd();
+-		}
++		orig_cmd();
+ 	    }
+ 	});
+     },
+-- 
+1.8.4.rc3
+
