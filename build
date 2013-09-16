@@ -14,6 +14,7 @@ pve-access-control.git
 glusterfs.git
 pve-storage.git
 pve-libspice-server.git
+usb-redir.git
 pve-qemu-kvm.git
 qemu-server.git
 vncterm.git
@@ -111,7 +112,8 @@ libtool dietlibc-dev liblocale-po-perl libstring-shellquote-perl \
 libio-multiplex-perl liblockfile-simple-perl libudev-dev libreadline-gplv2-dev \
 libfile-chdir-perl libpopt-dev cpio libqb-dev openssh-server libjson-xs-perl \
 dh-autoreconf libibverbs-dev libdb-dev librdmacm-dev libaio-dev attr flex bison \
-python-all-dev hardening-wrapper nfs-common python-pyparsing libxinerama-dev
+python-all-dev hardening-wrapper nfs-common python-pyparsing libxinerama-dev \
+libusb-1.0-0-dev libusbredirparser-dev \
 		;;
 	collect)
 		rm -rf packages && mkdir packages
