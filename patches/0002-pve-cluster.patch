@@ -1,0 +1,45 @@
+From 66a56821cdc19d642dcde6dd139ecee179daad46 Mon Sep 17 00:00:00 2001
+From: root <root@mac-buildvm.labnet.roodburcht>
+Date: Mon, 16 Sep 2013 10:12:23 +0000
+Subject: [PATCH 2/2] Fix installation in chroot jail.
+
+---
+ Makefile        |    3 +++
+ policy-rc.patch |   10 ++++++++++
+ 2 files changed, 13 insertions(+)
+ create mode 100644 policy-rc.patch
+
+diff --git a/Makefile b/Makefile
+index 498e4a8..57fc41d 100644
+--- a/Makefile
++++ b/Makefile
+@@ -17,7 +17,10 @@ cpgtest: cpgtest.c
+ 
+ .PHONY: dinstall
+ dinstall: ${DEB}
++	patch /usr/sbin/policy-rc.d policy-rc.patch
++	mknod /dev/fuse c 10 229 || true
+ 	dpkg -i ${DEB}
++	patch -R /usr/sbin/policy-rc.d policy-rc.patch
+ 
+ .PHONY: ${DEB}
+ ${DEB}:
+diff --git a/policy-rc.patch b/policy-rc.patch
+new file mode 100644
+index 0000000..8a8bdd9
+--- /dev/null
++++ b/policy-rc.patch
+@@ -0,0 +1,10 @@
++--- policy-rc.d	2013-09-16 09:48:57.955938094 +0000
+++++ policy-rc.d.new	2013-09-16 09:48:49.035937703 +0000
++@@ -5,6 +5,7 @@
++   -*) shift ;;
++   makedev) exit 0;;
++   x11-common) exit 0;;
+++  pve-cluster) exit 0;;
++   *)  exit 101;;
++ esac
++ done
+-- 
+1.7.10.4
+
