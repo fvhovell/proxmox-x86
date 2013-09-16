@@ -93,9 +93,9 @@ case $CMD in
 		;;
 
 	prepare)
-		apt-get --no-install-recommends -y install wget
+		apt-get --no-install-recommends -y install wget > /dev/null
  		echo "deb http://ceph.com/debian wheezy main" > /etc/apt/sources.list.d/ceph.list
-		wget -q -O- 'https://ceph.com/git/?p=ceph.git;a=blob_plain;f=keys/release.asc' | apt-key add - > /dev/null
+		wget -q -O- --no-check-certificate 'https://ceph.com/git/?p=ceph.git;a=blob_plain;f=keys/release.asc' | apt-key add -
 		apt-get update
 
 		apt-get --no-install-recommends -y install procps rsync build-essential fakeroot git-core debhelper autotools-dev \
