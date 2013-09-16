@@ -123,7 +123,7 @@ netcat-traditional socat libjpeg62 libcgroup-dev telnet \
 iputils-arping iputils-ping gawk net-tools liburcu-dev \
 libhttp-daemon-perl cstream ssmtp lzop dtach libanyevent-perl \
 logrotate libanyevent-http-perl apt-transport-https libcrypt-ssleay-perl \
-autopoint
+autopoint kmod
  		;;
 	collect)
 		rm -rf packages && mkdir packages
