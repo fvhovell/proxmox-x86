@@ -1,14 +1,19 @@
-From e1fbd9f4467fa245b18fc34b3dba731858b96558 Mon Sep 17 00:00:00 2001
-From: ayufan <ayufan@ayufan.eu>
-Date: Thu, 18 Oct 2012 22:33:18 +0200
-Subject: [PATCH] x86
+From d9becc79371f01607dc14908b0fa362d32ee816a Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Frederik=20van=20H=C3=B6vell?=
+ <frederik@roodburcht.fvhovell.nl>
+Date: Mon, 16 Sep 2013 13:07:13 +0200
+Subject: [PATCH] Changes for compilation on x86 / i386.
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
+Signed-off-by: Frederik van Hövell <frederik@roodburcht.fvhovell.nl>
 ---
- Makefile |    2 +-
- 1 files changed, 1 insertions(+), 1 deletions(-)
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/Makefile b/Makefile
-index 3b54169..49aa75f 100644
+index 21839ae..bb0c285 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -8,7 +8,7 @@ KVMPACKAGE=pve-qemu-kvm
@@ -17,9 +22,9 @@ index 3b54169..49aa75f 100644
  
 -ARCH=amd64
 +ARCH=i386
+ GITVERSION:=$(shell cat .git/refs/heads/master)
  
  KVM_DEB=${KVMPACKAGE}_${KVMVER}-${KVMPKGREL}_${ARCH}.deb
- 
 -- 
-1.7.2.5
+1.8.4.rc3
 

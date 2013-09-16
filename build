@@ -93,6 +93,11 @@ case $CMD in
 		;;
 
 	prepare)
+		apt-get --no-install-recommends -y install wget
+ 		echo "deb http://ceph.com/debian wheezy main" > /etc/apt/sources.list.d/ceph.list
+		wget -q -O- 'https://ceph.com/git/?p=ceph.git;a=blob_plain;f=keys/release.asc' | apt-key add - > /dev/null
+		apt-get update
+
 		apt-get --no-install-recommends -y install procps rsync build-essential fakeroot git-core debhelper autotools-dev \
 doxygen check pkg-config libnss3-dev groff quilt dpatch libxml2-dev \
 libncurses5-dev libslang2-dev libldap2-dev xsltproc python-pexpect \
@@ -114,6 +119,7 @@ libfile-chdir-perl libpopt-dev cpio libqb-dev openssh-server libjson-xs-perl \
 dh-autoreconf libibverbs-dev libdb-dev librdmacm-dev libaio-dev attr flex bison \
 python-all-dev hardening-wrapper nfs-common python-pyparsing libxinerama-dev \
 libusb-1.0-0-dev libusbredirparser-dev \
+texinfo uuid-dev librbd-dev 
 		;;
 	collect)
 		rm -rf packages && mkdir packages
@@ -131,4 +137,3 @@ libusb-1.0-0-dev libusbredirparser-dev \
 		exit 1
 		;;
 esac
-

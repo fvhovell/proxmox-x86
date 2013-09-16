@@ -1,0 +1,30 @@
+From e30e6ef418100eb39bbe598c8d88c14a291cb9d7 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Frederik=20van=20H=C3=B6vell?=
+ <frederik@roodburcht.fvhovell.nl>
+Date: Mon, 16 Sep 2013 14:01:29 +0200
+Subject: [PATCH 2/2] Add installation of libspice-protocol-dev > 0.12.5
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: Frederik van Hövell <frederik@roodburcht.fvhovell.nl>
+---
+ Makefile | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/Makefile b/Makefile
+index bb0c285..ebef31a 100644
+--- a/Makefile
++++ b/Makefile
+@@ -23,6 +23,8 @@ download:
+ 	tar czf ${KVMSRC} --exclude CVS --exclude .git --exclude .svn ${KVMDIR}
+ 
+ ${KVM_DEB} kvm: ${KVMSRC}
++	wget 'http://ftp.nl.debian.org/debian/pool/main/s/spice-protocol/libspice-protocol-dev_0.12.6-1_all.deb'
++	dpkg -i libspice-protocol-dev_0.12.6-1_all.deb
+ 	rm -rf ${KVMDIR}
+ 	tar xf ${KVMSRC} 
+ 	cp -a debian ${KVMDIR}/debian
+-- 
+1.8.4.rc3
+
