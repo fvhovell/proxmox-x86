@@ -1,0 +1,39 @@
+From 8c414d01429f6521490fb21397e1803335cc1dff Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Frederik=20van=20H=C3=B6vell?=
+ <frederik@roodburcht.fvhovell.nl>
+Date: Mon, 16 Sep 2013 13:17:58 +0200
+Subject: [PATCH] Fix architecture for i386
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: Frederik van Hövell <frederik@roodburcht.fvhovell.nl>
+---
+ debian/control | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/debian/control b/debian/control
+index a39fdd5..cd7a6c5 100644
+--- a/debian/control
++++ b/debian/control
+@@ -7,7 +7,7 @@ Section: libs
+ 
+ Package: pve-libspice-server-dev
+ Section: libdevel
+-Architecture: amd64
++Architecture: i386
+ Depends: pve-libspice-server1 (= ${binary:Version}), ${misc:Depends}, libpixman-1-dev (>= 0.17.7~), libssl-dev, libxinerama-dev
+ Suggests: pkg-config
+ Description: Header and development files for SPICE server
+@@ -21,7 +21,7 @@ Description: Header and development files for SPICE server
+ 
+ Package: pve-libspice-server1
+ Section: libs
+-Architecture: amd64
++Architecture: i386
+ Depends: ${shlibs:Depends}, ${misc:Depends}
+ Conflicts: libspice-server1
+ Provides: libspice-server1
+-- 
+1.8.4.rc3
+
