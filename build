@@ -13,6 +13,7 @@ lvm.git
 pve-access-control.git
 glusterfs.git
 pve-storage.git
+pve-sheepdog.git
 pve-libspice-server.git
 usb-redir.git
 pve-qemu-kvm.git
@@ -26,7 +27,6 @@ pve-manager.git
 gfs2-utils.git
 ksm-control-daemon.git
 dab.git
-pve-sheepdog.git
 EOF
 )
 
@@ -120,7 +120,7 @@ dh-autoreconf libibverbs-dev libdb-dev librdmacm-dev libaio-dev attr flex bison 
 python-all-dev hardening-wrapper nfs-common python-pyparsing libxinerama-dev \
 libusb-1.0-0-dev libusbredirparser-dev texinfo uuid-dev librbd-dev ceph-common \
 netcat-traditional socat libjpeg62 libcgroup-dev telnet \
-iputils-arping iputils-ping gawk net-tools
+iputils-arping iputils-ping gawk net-tools liburcu-dev
 		;;
 	collect)
 		rm -rf packages && mkdir packages
