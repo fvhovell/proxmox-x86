@@ -1,19 +1,24 @@
-From 0673ba8199b54d35743dbfd1087966241f862ffc Mon Sep 17 00:00:00 2001
-From: ayufan <ayufan@ayufan.eu>
-Date: Mon, 1 Apr 2013 21:49:48 +0000
-Subject: [PATCH] x86
+From 082792a27f4a33f2ec64f732adcca6681ad4a60b Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Frederik=20van=20H=C3=B6vell?=
+ <frederik@roodburcht.fvhovell.nl>
+Date: Mon, 16 Sep 2013 14:43:03 +0200
+Subject: [PATCH] Fix architecture for compilation to i386 / x86
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
+Signed-off-by: Frederik van Hövell <frederik@roodburcht.fvhovell.nl>
 ---
- Makefile |    2 +-
+ Makefile | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/Makefile b/Makefile
-index 08f8afc..317bb62 100644
+index 101cdc2..68cff57 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -7,7 +7,7 @@ GFSUDIR=gfs2-utils
- GFSUSRC=gfs2-utils-${GFSUVER}.tar.gz
+@@ -8,7 +8,7 @@ GFSUSRC=gfs2-utils-${GFSUVER}.tar.gz
  
+ GITVERSION:=$(shell cat .git/refs/heads/master)
  
 -DEB=${PACKAGE}_${GFSUVER}-${PKGREL}_amd64.deb
 +DEB=${PACKAGE}_${GFSUVER}-${PKGREL}_i386.deb
@@ -21,5 +26,5 @@ index 08f8afc..317bb62 100644
  all: ${DEB}
  
 -- 
-1.7.10.4
+1.8.4.rc3
 
