@@ -1,0 +1,47 @@
+From 233d4a4c5dd062f6361932b77585603cb0034875 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Frederik=20van=20H=C3=B6vell?=
+ <frederik@roodburcht.fvhovell.nl>
+Date: Thu, 26 Sep 2013 21:19:57 +0200
+Subject: [PATCH 3/3] Remove dependency of pve-headers on pve-kernel; add
+ provides linux-{image,headers}-@KVNAME@
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: Frederik van Hövell <frederik@roodburcht.fvhovell.nl>
+---
+ control.in         | 2 +-
+ headers-control.in | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/control.in b/control.in
+index 52d5149..4e47a60 100644
+--- a/control.in
++++ b/control.in
+@@ -3,7 +3,7 @@ Version: @KERNEL_VER@-@PKGREL@
+ Section: admin
+ Priority: optional
+ Architecture: i386
+-Provides: linux-image, linux-image-2.6
++Provides: linux-image, linux-image-2.6, linux-image-@KVNAME@
+ Suggests: pve-firmware
+ Depends: grub-pc | grub-efi-amd64, initramfs-tools, busybox
+ Maintainer: Proxmox Support Team <support@proxmox.com>
+diff --git a/headers-control.in b/headers-control.in
+index 8416f65..5c53d82 100644
+--- a/headers-control.in
++++ b/headers-control.in
+@@ -3,8 +3,8 @@ Version: @KERNEL_VER@-@PKGREL@
+ Section: devel
+ Priority: optional
+ Architecture: i386
+-Provides: linux-headers, linux-headers-2.6
+-Depends: coreutils | fileutils (>= 4.0), pve-kernel-@KVNAME@
++Provides: linux-headers, linux-headers-2.6, linux-headers-@KVNAME@
++Depends: coreutils | fileutils (>= 4.0)
+ Maintainer: Proxmox Support Team <support@proxmox.com>
+ Description: The Proxmox PVE Kernel Headers
+  This package contains the linux kernel headers
+-- 
+1.8.4.rc3
+
