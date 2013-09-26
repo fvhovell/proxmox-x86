@@ -5,3 +5,5 @@
 /pve-omping/omping-*/
 *.deb
 *.changes
+!/vzprocps/
+/vzprocps/vzprocps-*/
