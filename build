@@ -28,6 +28,7 @@ gfs2-utils.git
 ksm-control-daemon.git
 dab.git
 pve-omping.git
+vzprocps.git
 EOF
 )
 
@@ -36,7 +37,7 @@ function update_repo() {
 	# $2 - url
 	[ ! -e $1 ] && git clone $2 $1 --depth 4
 	cd $1
-	if [ "$1" == "pve-omping" ]; then
+	if [ "$1" == "pve-omping" ] || [ "$1" == "vzprocps" ]; then
 		return 0
 	fi
 	git fetch --depth 4
@@ -84,6 +85,10 @@ case $CMD in
 		for i in $PACKAGES
 		do
 			j=${i//.git}
+			if [ "$j" == "pve-omping" ] || [ "$j" == "vzprocps" ]
+			then
+				continue
+			fi
 			if ( cd $j; git fetch; git diff origin/master | grep diff > /dev/null )
 			then
 				echo "$j needs to be compiled"
