@@ -1,0 +1,11 @@
+omping (0.0.4-2) unstable; urgency=low
+
+  * increase version for wheezy
+
+ -- Proxmox Support Team <support@proxmox.com>  Wed, 27 Mar 2013 10:30:37 +0100
+
+omping (0.0.4-1) unstable; urgency=low
+
+  * Initial release
+
+ -- Proxmox Support Team <support@proxmox.com>  Tue, 19 Feb 2013 07:23:41 +0100

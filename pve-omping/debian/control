@@ -1,0 +1,14 @@
+Source: omping
+Section: admin
+Priority: extra
+Maintainer: Proxmox Support Team <support@proxmox.com>
+Build-Depends: debhelper (>= 7.0.50~)
+Standards-Version: 3.8.4
+Homepage: https://fedorahosted.org/omping/
+
+Package: omping
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Omping is a tool to test IP multicast 
+ Omping (Open Multicast Ping) is tool to test IP multicast
+ functionality primarily in local network.
